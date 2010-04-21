@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/pages/template/CadastroLayout.xhtml">
+		
+			<ui:define name="tituloCadastro">Cadastrar novo Livro </ui:define>
+		
+		<ui:define name="Cadastro">
+		   <br> </br>
+			<h:form>
+				
+				<h:panelGrid columns="3">
+					
+					<h:outputLabel value="Titulo Completo*" for="inputNome" />
+					<h:inputText label="Titulo Completo" id="inputNome" value="#{livroBean.livro.titulo}" required="true" />
+					<h:message for="inputNome" style="color:red"/>
+					
+					<h:outputLabel value="ISBN*" for="inputISBN" />
+					<h:inputText label="ISBN*"  id="inputISBN" value="#{livroBean.livro.isbn}" required="true"/>
+					<h:message for="inputISBN" style="color:red"/>
+					
+					<h:outputLabel value="Autor*" for="inputAutor" />
+					<h:inputText label="Autor" id="inputAutor" value="#{livroBean.livro.autor}" required="true" />
+					<h:message for="inputAutor" style="color:red"/>
+					
+					<h:outputLabel value="Editora*" for="inputEditora" />
+					<h:inputText label="Editora" id="inputEditora" value="#{livroBean.livro.editora}" required="true" />
+					<h:message for="inputEditora" style="color:red"/>
+									
+					<h:outputLabel value="Edicao*" for="inputEdicao" />
+					<h:inputText label="Edição" id="inputEdicao" value="#{livroBean.livro.edicao}" required="true" />
+					<h:message for="inputEdicao" style="color:red"/>
+					
+					<h:outputLabel value="Ano (yyyy)" for="inputAno" />
+					<h:inputText label="Ano" id="inputAno" value="#{livroBean.livro.ano}" >
+						<f:validateLength maximum="4" minimum="4"/>
+					</h:inputText>
+					<h:message for="inputAno" style="color:red"/>
+				
+					<h:outputLabel value="Número de Páginas" for="inputNumeroDePaginas" />
+					<h:inputText label="Número de Páginas" id="inputNumeroDePaginas" value="#{livroBean.livro.numeroDePaginas}" />
+					<h:message for="inputNumeroDePaginas" style="color:red"/>
+					
+					<h:outputLabel value="Resenha" for="inputResenha" />
+					<h:inputTextarea cols="30" rows="5"  label="Resenha" id="inputResenha" value="#{livroBean.livro.resenha}" />
+					<h:message for="inputResenha" style="color:red"/>
+										
+					<h:outputLabel value="Genero" for="selectOneGenero" />
+					<h:selectOneMenu label="Genero" id="selectOneGenero" value="#{livroBean.livro.categoria}" required="true">
+						<f:selectItems id="selectItemGenero" value="#{livroBean.generos}"/>
+					</h:selectOneMenu>
+					<h:message for="selectOneGenero" style="color:red"/>			
+					
+					<h:outputLabel value="Preço(R$)*" for="inputPreco" />
+					<h:inputText label="Preco" id="inputPreco" value="#{livroBean.livro.preco}" required="true" />
+					<h:message for="inputPreco" style="color:red"/>
+										
+				</h:panelGrid>	
+					<br></br>
+					
+					<h:commandButton action="#{livroBean.cadastra}" value="Finalizar Cadastro" />
+				 <br/>
+					
+				 <h:messages />>
+			</h:form>
+		
+		</ui:define>
+
+	</ui:composition>
+
+</html>

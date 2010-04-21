@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">      
+      
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>Book Store</title>
+<style type="text/css" media="screen">
+@import url("/BookStore/pages/template/estilo/avaliacao_css_02.css");
+</style>
+</head>
+<body>
+<div class="cabecalho" id="cabecalho">
+	<div class="cabecalhologo">
+		<img src="/BookStore/pages/template/imagens/logo.jpg" alt="logotipp da book store"/>
+		<h1 class="cabecalho">Book Store </h1> <samp class="cabecalho">| A melhor escolha da Internet !</samp>
+		<br /><br />
+	</div>
+	<div>
+	<h:form >
+       <rich:toolBar>
+            <rich:dropDownMenu>
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="Home"/>
+                    </h:panelGroup>
+                </f:facet>
+				<rich:menuItem submitMode="none">
+                    	<h:outputLink value="/BookStore/pages/index.jsf">
+                        	<h:outputText value="Pagina Inicial"/>
+                    	</h:outputLink>
+                </rich:menuItem>
+             </rich:dropDownMenu>
+            <rich:dropDownMenu>
+
+                <f:facet name="label">
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+                        style="vertical-align:middle">
+                        <h:outputText value="Adminstração" />
+                    </h:panelGrid>
+                </f:facet>
+
+                <rich:menuItem submitMode="none"
+                    onclick="/BookStore/pages/cliente/listar.jsf">
+                    <h:outputLink value="/BookStore/pages/cliente/listar.jsf">
+                        <h:outputText value="Lista de usuarios"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>
+
+                <rich:menuItem submitMode="none"
+                    onclick="/BookStore/pages/cliente/cadastrar.jsf">
+                    <h:outputLink
+                        value="/BookStore/pages/cliente/cadastrar.jsf">
+                        <h:outputText value="Cadastro de usuarios"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>
+                
+                <rich:menuItem submitMode="none"
+                    onclick="/BookStore/pages/livros/cadastrarLivro.jsf">
+                    <h:outputLink
+                        value="/BookStore/pages/livros/cadastrarLivro.jsf">
+                        <h:outputText value="Cadastro de Livros"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>
+                                
+                <rich:menuItem submitMode="none"
+                    onclick="/BookStore/pages/livros/listarLivros.jsf">
+                    <h:outputLink
+                        value="/BookStore/pages/livros/listarLivros.jsf">
+                        <h:outputText value="Lista Livros"></h:outputText>
+                    </h:outputLink>
+                </rich:menuItem>                                  
+            </rich:dropDownMenu>
+            
+            <rich:dropDownMenu>
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="Pedidos"/>
+                    </h:panelGroup>
+                </f:facet>
+				<rich:menuItem submitMode="none">
+                    	<h:outputLink value="#">
+                        	<h:outputText value="Pagina Pedidos"/>
+                    	</h:outputLink>
+                </rich:menuItem>
+             </rich:dropDownMenu>           
+
+            <rich:dropDownMenu>
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="Promoções"/>
+                    </h:panelGroup>
+                </f:facet>
+				<rich:menuItem submitMode="none">
+                    	<h:outputLink value="#">
+                        	<h:outputText value="Pagina Promoções"/>
+                    	</h:outputLink>
+                </rich:menuItem>
+             </rich:dropDownMenu>
+                    
+		     <rich:dropDownMenu>
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="Contatos"/>
+                    </h:panelGroup>
+                </f:facet>
+				<rich:menuItem submitMode="none">
+                    	<h:outputLink value="#">
+                        	<h:outputText value="Pagina Contatos"/>
+                    	</h:outputLink>
+                </rich:menuItem>
+             </rich:dropDownMenu>
+                                    
+            </rich:toolBar>
+    	</h:form>	
+	</div>
+	<div class="cabecalhoimagen"></div>
+</div>
+<br />
+<div id="corpo">
+	<div class="quadrotitulo">
+		<p class="quadrosTitulos"><ui:insert name="tituloCadastro">Novidades</ui:insert></p>
+	</div>
+	<table style="border:1px solid #CAD6E0"  align="center" cellpadding="0" cellspacing="0" border="0" width="99%">
+	<tbody>
+	<tr>
+		<td width="100%"  colspan="2">
+			<table width="100%" style="height:150px" align="left" cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+				<tr>
+					<td align="center" width="100%" valign="middle">
+					<f:view>
+						<ui:insert name="lista">Page Body</ui:insert>
+					</f:view>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>		
+	</tbody>
+	</table>
+</div>
+<div class="rodape" id="rodape">
+   <p class="rodape">Todos os direitos reservados @ 2010</p>
+</div>
+</body>
+</html>

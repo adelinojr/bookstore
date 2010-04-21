@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<ui:composition template="/pages/template/ListaLayout.xhtml">
+
+		<ui:define name="tituloCadastro">Lista de Clientes</ui:define>
+
+		<ui:define name="lista">
+			<h:form id="formListar">
+			
+			<rich:dataTable
+			   onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+               onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'"
+			    id="datatableListar" value="#{clienteBean.clientes}" var="cliente" binding="#{clienteBean.datatable}">
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderNome" value="Nome" />
+					</f:facet>
+					<h:outputText id="outputNome" value="#{cliente.nomeCompleto}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderEndereco" value="Endereco" />
+					</f:facet>
+					<h:outputText id="outputRua" value="#{cliente.endereco.logradouro}" />
+					<h:outputText id="outputNumero" value=", #{cliente.endereco.numero}" />
+					<h:outputText id="outputComplemento" value=", #{cliente.endereco.complemento} - " />
+					<h:outputText id="outputBairro" value="#{cliente.endereco.bairro}. " />
+					<h:outputText id="outputCidade" value="#{cliente.endereco.cidade} - " />
+					<h:outputText id="outputEstado" value="#{cliente.endereco.estado}." />
+					<h:outputText id="outputCEP" value="CEP #{cliente.endereco.cep}" />
+				</rich:column>
+				
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderCPF" value="CPF" />
+					</f:facet>
+					<h:outputText id="outputCPF" value="#{cliente.cpf}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderSexo" value="Sexo" />
+					</f:facet>
+					<h:outputText id="outputSexo" value="#{cliente.sexo}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeadeTelResidencial" value="Telefone Residencial" />
+					</f:facet>
+					<h:outputText id="outputTelResidencial" value="#{cliente.telefoneResidencial}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderTelCelular" value="Telefone Celular" />
+					</f:facet>
+					<h:outputText id="outputTelCelular" value="#{cliente.telefoneCelular}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderEmail" value="E-mail" />
+					</f:facet>
+					<h:outputText id="outputEmail" value="#{cliente.email}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderAcoes" value="Acoes" />
+					</f:facet>
+					<h:commandButton id="buttonEditar" action="#{clienteBean.editarCliente}" value="Editar" />
+					<h:commandButton id="buttonExcluir" action="#{clienteBean.excluirCliente}" value="Excluir" />
+				</rich:column>
+			
+			</rich:dataTable>
+
+			<t:saveState id="clienteBeanSavestate" value="#{clienteBean}"/>
+	
+			</h:form>
+			<br></br>
+			<h:messages style="color:red"/>
+		</ui:define>
+
+	</ui:composition>
+
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#cliente#cadastrar.xhtml"
+  PATH="/pages/cliente/cadastrar.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#cadastrar.xhtml:0" NAME="item"
+   PATH="/pages/cliente/cadastrar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cadastrado::#pages#cliente#listar.xhtml"
+    NAME="output" PATH="/pages/cliente/listar.xhtml"
+    TARGET="rules:#pages#cliente#listar.xhtml" TITLE="cadastrado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#listar.xhtml"
+  PATH="/pages/cliente/listar.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#listar.xhtml:0" NAME="item"
+   PATH="/pages/cliente/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#cliente#editar.xhtml"
+    NAME="output" PATH="/pages/cliente/editar.xhtml"
+    TARGET="rules:#pages#cliente#editar.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#editar.xhtml"
+  PATH="/pages/cliente/editar.xhtml" SHAPE="464,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#editar.xhtml:0" NAME="item"
+   PATH="/pages/cliente/editar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="salvo::#pages#cliente#edicaoSucesso.xhtml"
+    NAME="output" PATH="/pages/cliente/edicaoSucesso.xhtml"
+    TARGET="rules:#pages#cliente#edicaoSucesso.xhtml" TITLE="salvo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#edicaoSucesso.xhtml"
+  PATH="/pages/cliente/edicaoSucesso.xhtml" SHAPE="672,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#cliente#edicaoSucesso.xhtml:0"
+   NAME="item" PATH="/pages/cliente/edicaoSucesso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#pages#cliente#listar.xhtml"
+    NAME="output" PATH="/pages/cliente/listar.xhtml"
+    TARGET="rules:#pages#cliente#listar.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#index.xhtml" NAME="output1"
+    PATH="/pages/index.xhtml" TARGET="rules:#pages#index.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#index.xhtml" PATH="/pages/index.xhtml"
+  SHAPE="896,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#index.xhtml:0" NAME="item"
+   PATH="/pages/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="buscar::#pages#livros#buscarLivros.xhtml"
+    NAME="output" PATH="/pages/livros/buscarLivros.xhtml"
+    TARGET="rules:#pages#livros#buscarLivros.xhtml" TITLE="buscar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#cadastrarLivro.xhtml"
+  PATH="/pages/livros/cadastrarLivro.xhtml" SHAPE="32,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#livros#cadastrarLivro.xhtml:0"
+   NAME="item" PATH="/pages/livros/cadastrarLivro.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="sucesso::#pages#livros#listarLivros.xhtml"
+    NAME="output" PATH="/pages/livros/listarLivros.xhtml"
+    TARGET="rules:#pages#livros#listarLivros.xhtml" TITLE="sucesso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#listarLivros.xhtml"
+  PATH="/pages/livros/listarLivros.xhtml" SHAPE="280,192,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#livros#listarLivros.xhtml:0"
+   NAME="item" PATH="/pages/livros/listarLivros.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#livros#editarLivro.xhtml"
+    NAME="output" PATH="/pages/livros/editarLivro.xhtml"
+    TARGET="rules:#pages#livros#editarLivro.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="descricao::#pages#livros#descricaoLivro.xhtml" NAME="output1"
+    PATH="/pages/livros/descricaoLivro.xhtml"
+    TARGET="rules:#pages#livros#descricaoLivro.xhtml" TITLE="descricao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#editarLivro.xhtml"
+  PATH="/pages/livros/editarLivro.xhtml" SHAPE="496,120,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#livros#editarLivro.xhtml:0" NAME="item"
+   PATH="/pages/livros/editarLivro.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="salvo::#pages#livros#edicaoSucesso.xhtml"
+    NAME="output" PATH="/pages/livros/edicaoSucesso.xhtml"
+    TARGET="rules:#pages#livros#edicaoSucesso.xhtml" TITLE="salvo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#edicaoSucesso.xhtml"
+  PATH="/pages/livros/edicaoSucesso.xhtml" SHAPE="688,208,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#livros#edicaoSucesso.xhtml:0"
+   NAME="item" PATH="/pages/livros/edicaoSucesso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#pages#livros#listarLivros.xhtml"
+    NAME="output" PATH="/pages/livros/listarLivros.xhtml"
+    TARGET="rules:#pages#livros#listarLivros.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#index.xhtml" NAME="output1"
+    PATH="/pages/index.xhtml" TARGET="rules:#pages#index.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#buscarLivros.xhtml"
+  PATH="/pages/livros/buscarLivros.xhtml" SHAPE="256,321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#livros#buscarLivros.xhtml:0"
+   NAME="item" PATH="/pages/livros/buscarLivros.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="descricao::#pages#livros#descricaoLivro.xhtml" NAME="output"
+    PATH="/pages/livros/descricaoLivro.xhtml"
+    TARGET="rules:#pages#livros#descricaoLivro.xhtml" TITLE="descricao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#livros#descricaoLivro.xhtml"
+  PATH="/pages/livros/descricaoLivro.xhtml" SHAPE="504,336,50,25" model-entity="JSFProcessGroup"/>
+</PROCESS>

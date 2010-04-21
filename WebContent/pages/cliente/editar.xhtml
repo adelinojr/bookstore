@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:composition template="/pages/template/CadastroLayout.xhtml">
+
+		<ui:define name="tituloCadastro">Atualização de Cadastro </ui:define>
+		
+		<ui:define name="Cadastro">
+		
+			<h3>Editar cliente</h3>
+		
+			<h:form id="formEdit">
+				
+				<h:panelGrid id="panelGridEdit" columns="3">
+					
+					<h:outputLabel id="labelNome" value="Nome Completo*" for="inputNome" />
+					<h:inputText label="Nome Completo" id="inputNome" value="#{clienteBean.cliente.nomeCompleto}" required="true" />
+					<h:message for="inputNome" style="color:red"/>
+					
+					<h:outputLabel id="labelCPF" value="CPF*" for="inputCPF" />
+					<h:inputText label="CPF"  id="inputCPF" value="#{clienteBean.cliente.cpf}" required="true" >
+					    <f:converter converterId="CpfConverter"/>
+					</h:inputText>
+					<h:message for="inputCPF" style="color:red"/>
+					
+					<h:outputLabel id="labelSexo" value="Sexo*" for="selectOneSexo" />
+					<h:selectOneMenu label="Sexo" id="selectOneSexo" value="#{clienteBean.cliente.sexo}" required="true">
+						<f:selectItems id="selectItemsSexo" value="#{clienteBean.sexos}"/>
+					</h:selectOneMenu>
+					<h:message for="selectOneSexo" style="color:red"/>
+					
+					<h:outputLabel id="labelData" value="Data de Nascimento (dd/MM/yyyy)*" for="inputDataDeNascimento" />
+					<h:inputText label="Data de Nascimento" id="inputDataDeNascimento" value="#{clienteBean.cliente.dataDeNascimento}" required="true" >
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+					<h:message for="inputDataDeNascimento" style="color:red"/>
+				
+					<h:outputLabel id="labelRua" value="Rua" for="inputRua" />
+					<h:inputText label="Rua" id="inputRua" value="#{clienteBean.cliente.endereco.logradouro}" />
+					<h:message for="inputRua" style="color:red"/>
+					
+					<h:outputLabel id="labelNumero" value="Numero" for="inputNumero" />
+					<h:inputText label="Numero" id="inputNumero" value="#{clienteBean.cliente.endereco.numero}" />
+					<h:message for="inputNumero" style="color:red"/>
+					
+					<h:outputLabel id="labelComplemento" value="Complemento" for="inputComplemento" />
+					<h:inputText label="Complemento" id="inputComplemento" value="#{clienteBean.cliente.endereco.complemento}" />
+					<h:message for="inputComplemento" style="color:red"/>
+					
+					<h:outputLabel id="labelBairro" value="Bairro" for="inputBairro" />
+					<h:inputText label="Bairro" id="inputBairro" value="#{clienteBean.cliente.endereco.bairro}" />
+					<h:message for="inputBairro" style="color:red"/>
+					
+					<h:outputLabel id="labelEstado" value="Estado" for="selectOneEstados" />
+					<h:selectOneMenu label="Estado" id="selectOneEstados" value="#{clienteBean.cliente.endereco.estado}" onchange="submit()"
+							immediate="true" valueChangeListener="#{clienteBean.alterarEstado}">
+						<f:selectItems value="#{clienteBean.estados}"/>
+					</h:selectOneMenu>
+					<h:message for="selectOneEstados" style="color:red"/>
+					
+					<h:outputLabel id="labelCidade" value="Cidade" for="selectOneCidades" />
+					<h:selectOneMenu label="Cidade" id="selectOneCidades" value="#{clienteBean.cliente.endereco.cidade}">
+						<f:selectItems id="selectItemsCidades" binding="#{clienteBean.comboCidades}"/>
+					</h:selectOneMenu>
+					<h:message for="selectOneCidades" style="color:red"/>
+					
+					<h:outputLabel id="labelTelResidencial" value="Telefone Residencial" for="inputTelefoneResidencial" />
+					<h:inputText label="Telefone Residencial" id="inputTelefoneResidencial" value="#{clienteBean.cliente.telefoneResidencial}" />
+					<h:message for="inputTelefoneResidencial" style="color:red" />
+					
+					<h:outputLabel id="labelTelCelular" value="Telefone Celular" for="inputTelefoneCelular" />
+					<h:inputText label="Telefone Celular" id="inputTelefoneCelular" value="#{clienteBean.cliente.telefoneCelular}" />
+					<h:message for="inputTelefoneCelular" />
+					
+					<h:outputLabel id="labelCEP" value="CEP*" for="inputCEP" />
+					<h:inputText label="CEP" id="inputCEP" value="#{clienteBean.cliente.endereco.cep}" required="true" />
+					<h:message for="inputCEP" style="color:red"/>
+					
+					<h:outputLabel id="labelEmail" value="E-mail*" for="inputEmail" />
+					<h:inputText label="E-mail" id="inputEmail" value="#{clienteBean.cliente.email}" required="true">
+						<f:validator validatorId="emailValidator"/>
+					</h:inputText>
+					<h:message for="inputEmail" style="color:red"/>
+					
+				</h:panelGrid>	
+					
+					<h:commandButton id="botaoSalvar" action="#{clienteBean.salvarModificacoes}" value="Salvar modificações" />
+				
+				<t:saveState id="clienteBeanSavestate" value="#{clienteBean}"/>
+		
+			</h:form>
+		
+		</ui:define>
+
+	</ui:composition>
+
+</html>
