@@ -45,7 +45,7 @@ public class LivroBean implements Serializable{
 			 * */
 			e.printStackTrace();
 		}		
-		
+	   this.livro = new  Livro();
 	}
 	
 	public  org.richfaces.component.html.HtmlDataTable getDatatable() {

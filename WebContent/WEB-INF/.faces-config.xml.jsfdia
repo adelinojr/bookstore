@@ -58,7 +58,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#livros#listarLivros.xhtml"
-  PATH="/pages/livros/listarLivros.xhtml" SHAPE="280,192,50,57" model-entity="JSFProcessGroup">
+  PATH="/pages/livros/listarLivros.xhtml" SHAPE="320,192,50,57" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#pages#livros#listarLivros.xhtml:0"
    NAME="item" PATH="/pages/livros/listarLivros.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="editar::#pages#livros#editarLivro.xhtml"
