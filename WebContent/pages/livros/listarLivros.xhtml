@@ -34,7 +34,6 @@
 					<t:commandLink value="#{livro.titulo}" action="#{livroBean.descreverLivro}" />
 				</rich:column>
 				
-			
 				<rich:column>
 					<f:facet name="header">
 						<h:outputText id="outputHeaderAutor" value="Autor" />
@@ -100,7 +99,6 @@
 					<h:commandButton id="buttonEditar" action="#{livroBean.editarLivro}" value="Editar" />
 					<h:commandButton id="buttonExcluir" action="#{livroBean.excluirLivro}" value="Excluir" />
 				</rich:column>
-			
 			</rich:dataTable>
 
 			<t:saveState id="livroBeanSavestate" value="#{livroBean}"/>

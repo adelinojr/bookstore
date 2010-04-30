@@ -91,7 +91,7 @@ public class LivroBean implements Serializable{
 	public String excluirLivro(){
 		this.livro = (Livro) datatable.getRowData();
 		try {
-			this.livroFacade.removerLivro(livro);
+			this.livroFacade.removerLivro(this.livro);
 		} catch (LivroException e) {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(e.getMessage()));
@@ -101,8 +101,7 @@ public class LivroBean implements Serializable{
 	}
 	
 	public String editarLivro(){
-		Livro livro = (Livro) datatable.getRowData();
-		this.livro = (Livro) livro.cloneLivro();
+		this.livro = (Livro) datatable.getRowData();
 		return "editar"; 
 	}
 	
@@ -149,7 +148,7 @@ public class LivroBean implements Serializable{
 		}
 	}	
 	
-	public String getPaginaBusca(){
+	public String paginaBusca(){
 		return "buscar";
 	}	
 }
