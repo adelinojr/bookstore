@@ -66,7 +66,7 @@
 					<h:outputLabel id="labelCidade" value="Cidade" for="selectOneCidades" />
 					<h:selectOneMenu label="Cidade" id="selectOneCidades" value="#{clienteBean.cliente.endereco.cidade}">
 						<f:selectItems id="selectItemsCidades" binding="#{clienteBean.comboCidades}"/>
-					</h:selectOneMenu>
+					</h:selectOneMenu> 
 					<h:message for="selectOneCidades" style="color:red"/>
 					
 					<h:outputLabel id="labelTelResidencial" value="Telefone Residencial" for="inputTelefoneResidencial" />
@@ -89,10 +89,9 @@
 					
 				</h:panelGrid>	
 					
-					<h:commandButton id="botaoSalvar" action="#{clienteBean.salvarModificacoes}" value="Salvar modificações" />
-				
-				<t:saveState id="clienteBeanSavestate" value="#{clienteBean}"/>
-		
+					<h:commandButton  id="botaoSalvar" action="#{clienteBean.salvarModificacoes}" value="Salvar modificações" />
+					<t:saveState id="clienteBeanSavestate" value="#{clienteBean}"/>
+					<h:messages />
 			</h:form>
 		
 		</ui:define>

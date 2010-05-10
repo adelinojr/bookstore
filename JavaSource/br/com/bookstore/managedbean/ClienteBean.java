@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
@@ -56,12 +57,7 @@ public class ClienteBean implements Serializable {
 			
 			this.cliente = new Usuario();
 			this.cliente.setEndereco(new Endereco());
-			this.comboCidades = new UISelectItems();
-			
-			List<String> cidadesStr = this.facade.obterCidades(this.cliente.getEndereco().getEstado());
-			List<SelectItem> cidadesSI = this.converteParaSelectItems(cidadesStr);
-			
-			this.comboCidades.setValue(cidadesSI);			
+			iniciarCidades();				
 	}
 	
 	public Usuario getCliente() {
@@ -73,10 +69,14 @@ public class ClienteBean implements Serializable {
 	}
 	
 	public UISelectItems getComboCidades() {
-		return comboCidades;
+		if(this.cliente.getEndereco().getEstado() != null){
+			iniciarCidades();
+		}
+		return this.comboCidades;
 	}
 	
 	public void setComboCidades(UISelectItems comboCidades) {
+		
 		this.comboCidades = comboCidades;
 	}
 	
@@ -117,6 +117,7 @@ public class ClienteBean implements Serializable {
 	
 	public String editarCliente(){
 		this.cliente = (Usuario) datatable.getRowData();
+		
 		if(this.cliente.getPerfil().equals(Perfil.Administrador)){
 			FacesContext context = FacesContext.getCurrentInstance();
 		context.addMessage(null, new FacesMessage("Cliente com Perfil invalido"));			
@@ -194,4 +195,11 @@ public class ClienteBean implements Serializable {
 		return items;
 	}
 		
+	private void iniciarCidades(){
+		List<String> cidadesStr = this.facade.obterCidades(this.cliente.getEndereco().getEstado());
+		List<SelectItem> cidadesSI = this.converteParaSelectItems(cidadesStr);
+		this.comboCidades = new UISelectItems();
+		this.comboCidades.setValue(cidadesSI);							
+	} 
+	
 }
