@@ -18,6 +18,8 @@ import br.com.bookstore.bean.LivroBeanModel;
 import br.com.bookstore.model.exceptions.LivroException;
 import br.com.bookstore.model.livro.Genero;
 import br.com.bookstore.model.livro.Livro;
+import br.com.bookstore.service.ServiceBookStore;
+import br.com.bookstore.service.ServiceLocator;
 
 
 
@@ -27,7 +29,7 @@ public class LivroBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private LivroBeanModel livroFacade;
+	private ServiceBookStore livroFacade;
 	private Livro livro ;
 	private String busca;
 	
@@ -37,8 +39,11 @@ public class LivroBean implements Serializable{
 	public LivroBean (){
 
 		try {
-			Context initialContext = new InitialContext();
-			this.livroFacade = (LivroBeanModel) initialContext.lookup("BookStoreEAR/LivroBeanGen/local");
+			/*Context initialContext = new InitialContext();
+			this.livroFacade = (LivroBeanModel) initialContext.lookup("BookStoreEAR/LivroBeanGen/local");*/
+			
+			this.livroFacade = (ServiceBookStore) ServiceLocator.getInstance().getLocalEJB(ServiceBookStore.class);
+			
 			} catch (NamingException e) {
 			/* Se alguma coisa acontecer aqui, é porque não foi possível fazer lookup,
 			 * ou não foi possível criar o initial context.

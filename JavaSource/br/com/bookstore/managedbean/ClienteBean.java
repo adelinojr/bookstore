@@ -21,6 +21,8 @@ import br.com.bookstore.cliente.Perfil;
 import br.com.bookstore.cliente.Sexo;
 import br.com.bookstore.cliente.Usuario;
 import br.com.bookstore.exceptions.ClienteException;
+import br.com.bookstore.service.ServiceBookStore;
+import br.com.bookstore.service.ServiceLocator;
 import br.com.bookstore.cliente.Endereco;
 
 public class ClienteBean implements Serializable {
@@ -41,13 +43,17 @@ public class ClienteBean implements Serializable {
 	
 	private transient HtmlDataTable datatable;
 	
-	private ClienteBeanModel facade;
+	//private ClienteBeanModel facade;
+	private ServiceBookStore facade;
 	
 	public ClienteBean(){
 		
 		try {
-			Context initialContext = new InitialContext();
-			this.facade = (ClienteBeanModel) initialContext.lookup("BookStoreEAR/ClienteBeanGen/remote");
+			/*Context initialContext = new InitialContext();
+			this.facade = (ClienteBeanModel) initialContext.lookup("BookStoreEAR/ClienteBeanGen/local");*/
+			
+			this.facade = (ServiceBookStore) ServiceLocator.getInstance().getLocalEJB(ServiceBookStore.class);
+			
 			} catch (NamingException e) {
 			/* Se alguma coisa acontecer aqui, é porque não foi possível fazer lookup,
 			 * ou não foi possível criar o initial context.
