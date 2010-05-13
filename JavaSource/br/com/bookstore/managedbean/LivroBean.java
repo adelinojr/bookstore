@@ -8,13 +8,10 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.richfaces.component.html.HtmlDataTable;
 
-import br.com.bookstore.bean.LivroBeanModel;
 import br.com.bookstore.model.exceptions.LivroException;
 import br.com.bookstore.model.livro.Genero;
 import br.com.bookstore.model.livro.Livro;
