@@ -96,11 +96,19 @@
                         <h:outputText value="Promoções"/>
                     </h:panelGroup>
                 </f:facet>
+                
 				<rich:menuItem submitMode="none">
-                    	<h:outputLink value="#">
-                        	<h:outputText value="Pagina Promoções"/>
+                    	<h:outputLink value="/BookStore/pages/promocoes/cadastrarPromocoes.jsf">
+                        	<h:outputText value="Cadastra Promoções"/>
                     	</h:outputLink>
                 </rich:menuItem>
+                
+				<rich:menuItem submitMode="none">
+                    	<h:outputLink value="/BookStore/pages/promocoes/listarPromocoes.jsf">
+                        	<h:outputText value="Lista Promoções"/>
+                    	</h:outputLink>
+                </rich:menuItem>
+                
              </rich:dropDownMenu>
                     
 		     <rich:dropDownMenu>

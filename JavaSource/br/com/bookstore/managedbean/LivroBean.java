@@ -83,8 +83,7 @@ public class LivroBean implements Serializable{
 		try {
 			this.livroFacade.cadastrarLivro(this.livro);
 		} catch (LivroException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return "falha";
 		}
 		return "sucesso";
@@ -95,8 +94,7 @@ public class LivroBean implements Serializable{
 		try {
 			this.livroFacade.removerLivro(this.livro);
 		} catch (LivroException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return "falha";
 		}
 		return "ficarNaMesmaPagina";
@@ -111,8 +109,7 @@ public class LivroBean implements Serializable{
 		try {	
 			this.livroFacade.editarLivro(livro);
 		} catch (LivroException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return "falha";
 		}
 		return "salvo";
@@ -144,8 +141,7 @@ public class LivroBean implements Serializable{
 		try {
 			return this.livroFacade.buscaLivro(this.busca);
 		} catch (LivroException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return null;
 		}
 	}	
@@ -153,4 +149,11 @@ public class LivroBean implements Serializable{
 	public String paginaBusca(){
 		return "buscar";
 	}	
+	
+	private void setMessagem(String msg){
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage(msg));
+	}
+	
+	
 }

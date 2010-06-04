@@ -16,16 +16,22 @@
   <managed-bean-class>br.com.bookstore.managedbean.LivroBean</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
- <validator>
-  <validator-id>emailValidator</validator-id>
-  <validator-class>br.com.bookstore.validator.EmailValidator</validator-class>
- </validator>
- <application>
-  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
- </application>
- 
- 
-  <navigation-rule>
+ <managed-bean>
+  <managed-bean-name>promocaoBean</managed-bean-name>
+  <managed-bean-class>br.com.bookstore.managedbean.PromocaoBeanWeb</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>carrinhoBeanWeb</managed-bean-name>
+  <managed-bean-class>br.com.bookstore.managedbean.CarrinhoBeanWeb</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+  <managed-property>
+   <property-name>livro</property-name>
+   <property-class>br.com.bookstore.model.livro.Livro</property-class>
+   <value/>
+  </managed-property>
+ </managed-bean>
+ <navigation-rule>
   <from-view-id>/pages/cliente/cadastrar.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>cadastrado</from-outcome>
@@ -58,8 +64,6 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
- 
-
  <navigation-rule>
   <from-view-id>/pages/livros/cadastrarLivro.xhtml</from-view-id>
   <navigation-case>
@@ -111,5 +115,43 @@
    <to-view-id>/pages/livros/descricaoLivro.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
-  
+ <navigation-rule>
+  <from-view-id>/pages/promocoes/cadastrarPromocoes.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>sucesso</from-outcome>
+   <to-view-id>/pages/promocoes/listarPromocoes.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/pages/promocoes/listarPromocoes.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>editar</from-outcome>
+   <to-view-id>/pages/promocoes/editarPromocoes.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/pages/promocoes/editarPromocoes.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>salvo</from-outcome>
+   <to-view-id>/pages/promocoes/edicaoSucessoPromocao.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/pages/promocoes/edicaoSucessoPromocao.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>listar</from-outcome>
+   <to-view-id>/pages/promocoes/listarPromocoes.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/pages/index.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <validator>
+  <validator-id>emailValidator</validator-id>
+  <validator-class>br.com.bookstore.validator.EmailValidator</validator-class>
+ </validator>
+ <application>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+ </application>
 </faces-config>

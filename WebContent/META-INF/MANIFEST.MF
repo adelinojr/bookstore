@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Class-Path: BookStoreClienteEJB.jar 
  BookStoreLivroEJB.jar 
- BookStoreService.jar
+ BookStoreService.jar 
+ BooKStoreComprasEJB.jar
 

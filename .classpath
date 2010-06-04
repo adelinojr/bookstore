@@ -15,5 +15,7 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/BookStoreClienteEJB"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BookStoreLivroEJB"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BooKStoreComprasEJB"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BookStoreService"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

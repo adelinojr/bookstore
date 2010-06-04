@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<ui:composition template="../template/ListaLayout.xhtml">
+
+		<ui:define name="tituloCadastro">Lista de Promoções</ui:define>
+
+		<ui:define name="lista">
+			<h:form id="formListar">
+			
+			<rich:dataTable
+			   onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+               onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'" 
+			   id="datatableListar" value="#{promocaoBean.promocoes}" var="promocao" binding="#{promocaoBean.datatable}">
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeardID" value="ID" />
+					</f:facet>
+					<h:outputText id="outputID" value="#{promocao.id}" />
+				</rich:column>
+							
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderDescricao" value="Descrição" />
+					</f:facet>
+					<h:outputText id="outputDescrição" value="#{promocao.descricaoPromocao}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderValor" value="Valor" />
+					</f:facet>
+					<h:outputText id="outputValor" value="#{promocao.valorReferencia}" >
+					   <f:convertNumber pattern="R$####.00"/>
+					</h:outputText>
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderStatus" value="Status" />
+					</f:facet>
+					<h:outputText id="outputStatus" value="#{promocao.status}" />
+				</rich:column>
+											
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderAcoes" value="Acoes" />
+					</f:facet>
+					<h:commandButton id="buttonEditar" action="#{promocaoBean.editarPromocao}" value="Editar" />
+					<h:commandButton id="buttonExcluir" action="#{promocaoBean.excluirPromocao}" value="Excluir" />
+				</rich:column>
+			</rich:dataTable>
+
+			<t:saveState id="livroBeanSavestate" value="#{promocaoBean}"/>
+
+			</h:form>
+			<br></br>
+			<h:messages style="color:red"/>
+		</ui:define>
+
+	</ui:composition>
+
+</html>

@@ -103,4 +103,51 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#livros#descricaoLivro.xhtml"
   PATH="/pages/livros/descricaoLivro.xhtml" SHAPE="504,336,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#promocoes#cadastrarPromocoes.xhtml"
+  PATH="/pages/promocoes/cadastrarPromocoes.xhtml" SHAPE="24,432,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#promocoes#cadastrarPromocoes.xhtml:0"
+   NAME="item" PATH="/pages/promocoes/cadastrarPromocoes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="sucesso::#pages#promocoes#listarPromocoes.xhtml" NAME="output"
+    PATH="/pages/promocoes/listarPromocoes.xhtml"
+    TARGET="rules:#pages#promocoes#listarPromocoes.xhtml"
+    TITLE="sucesso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#promocoes#listarPromocoes.xhtml"
+  PATH="/pages/promocoes/listarPromocoes.xhtml" SHAPE="296,440,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#promocoes#listarPromocoes.xhtml:0"
+   NAME="item" PATH="/pages/promocoes/listarPromocoes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar::#pages#promocoes#editarPromocoes.xhtml" NAME="output"
+    PATH="/pages/promocoes/editarPromocoes.xhtml"
+    TARGET="rules:#pages#promocoes#editarPromocoes.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#promocoes#editarPromocoes.xhtml"
+  PATH="/pages/promocoes/editarPromocoes.xhtml" SHAPE="584,520,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#promocoes#editarPromocoes.xhtml:0"
+   NAME="item" PATH="/pages/promocoes/editarPromocoes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="salvo::#pages#promocoes#edicaoSucessoPromocao.xhtml"
+    NAME="output" PATH="/pages/promocoes/edicaoSucessoPromocao.xhtml"
+    TARGET="rules:#pages#promocoes#edicaoSucessoPromocao.xhtml"
+    TITLE="salvo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#promocoes#edicaoSucessoPromocao.xhtml"
+  PATH="/pages/promocoes/edicaoSucessoPromocao.xhtml"
+  SHAPE="776,400,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#pages#promocoes#edicaoSucessoPromocao.xhtml:0" NAME="item"
+   PATH="/pages/promocoes/edicaoSucessoPromocao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar::#pages#promocoes#listarPromocoes.xhtml" NAME="output"
+    PATH="/pages/promocoes/listarPromocoes.xhtml"
+    TARGET="rules:#pages#promocoes#listarPromocoes.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#index.xhtml" NAME="output1"
+    PATH="/pages/index.xhtml" TARGET="rules:#pages#index.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

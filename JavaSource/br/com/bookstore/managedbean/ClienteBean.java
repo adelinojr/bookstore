@@ -4,19 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.richfaces.component.html.HtmlDataTable;
 
-import br.com.bookstore.bean.ClienteBeanModel;
 import br.com.bookstore.cliente.Perfil;
 import br.com.bookstore.cliente.Sexo;
 import br.com.bookstore.cliente.Usuario;
@@ -102,8 +98,7 @@ public class ClienteBean implements Serializable {
 			this.cliente.setPerfil(Perfil.Cliente);
 			this.facade.cadastrarCliente(this.cliente);
 		} catch (ClienteException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return "naoCadastrado"; //não colocamos nenhum mapeamento, para que fique na mesma página
 		}
 		
@@ -115,8 +110,7 @@ public class ClienteBean implements Serializable {
 		try {
 			this.facade.removerCliente(this.cliente);
 		} catch (ClienteException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 		}
 		return "ficarNaMesmaPagina";
 	}
@@ -125,8 +119,7 @@ public class ClienteBean implements Serializable {
 		this.cliente = (Usuario) datatable.getRowData();
 		
 		if(this.cliente.getPerfil().equals(Perfil.Administrador)){
-			FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage("Cliente com Perfil invalido"));			
+			setMessagem("Cliente com Perfil invalido");	
 			return "ficarNaMesmaPagina";
 		}
 		return "editar";
@@ -136,8 +129,7 @@ public class ClienteBean implements Serializable {
 		try {
 			this.facade.editarCliente(this.cliente);
 		} catch (ClienteException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(e.getMessage()));
+			setMessagem(e.getMessage());
 			return "ficarNaMesmaPagina";
 		}
 		return "salvo";
@@ -208,4 +200,9 @@ public class ClienteBean implements Serializable {
 		this.comboCidades.setValue(cidadesSI);							
 	} 
 	
+	private void setMessagem(String msg){
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage(msg));
+	}
+		
 }

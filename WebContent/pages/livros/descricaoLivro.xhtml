@@ -8,7 +8,7 @@
 
 	<ui:composition template="/pages/template/CadastroLayout.xhtml">
 		
-			<ui:define name="tituloCadastro">Descrição novo Livro </ui:define>
+			<ui:define name="tituloCadastro">Descrição do Livro </ui:define>
 		
 		<ui:define name="Cadastro">
 		   <br> </br>
@@ -44,11 +44,15 @@
 					<h:outputLabel label="Genero" value="#{livroBean.livro.categoria}"/>		
 					<br></br>
 					<h:outputLabel value="Preço(R$)*" for="inputPreco" style="font-weight: bolder" />
-					<h:outputLabel label="Preco" id="inputPreco" value="#{livroBean.livro.preco}" />										
-				</h:panelGrid>	
+					<h:outputLabel label="Preco" id="inputPreco" value="#{livroBean.livro.preco}" />	
 					<br></br>
-					
-					<h:commandButton action="#" value="Comprar" />
+					<h:outputLabel value="Quantidade*" for="inputQuantidade" style="font-weight: bolder" />
+					<!--<h:inputText label="Quantidade" id="inputQuantidade" value="#{carrinhoBeanWeb.quantidade}" required="true" />	-->									
+				</h:panelGrid>	
+					<br></br>					
+					<h:commandButton action="#{carrinhoBeanWeb.addItemAoCarrinho}" value="Comprar" >
+						 <f:setPropertyActionListener target="#{carrinhoBeanWeb.livro}" value="#{livroBean.livro}"/>
+					</h:commandButton>
 				 <br/>
 				 <t:saveState id="livroBeanSavestate" value="#{livroBean}"/>
 			</h:form>

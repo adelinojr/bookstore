@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<ui:composition template="../template/ListaLayout.xhtml">
+
+		<ui:define name="tituloCadastro">Lista de Livro</ui:define>
+
+		<ui:define name="lista">
+			<h:form id="formListar">
+			
+			<rich:dataTable
+			   onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+               onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'" 
+			   id="datatableListar" value="#{livroBean.livros}" var="livro" binding="#{livroBean.datatable}">
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeardIsbn" value="ISBN" />
+					</f:facet>
+					<h:outputText id="outputIsbn" value="#{livro.isbn}" />
+				</rich:column>
+							
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderTitulo" value="Título" />
+					</f:facet>
+					<t:commandLink value="#{livro.titulo}" action="#{livroBean.descreverLivro}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderAutor" value="Autor" />
+					</f:facet>
+					<h:outputText id="outputAutor" value="#{livro.autor}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderGenero" value="Genero" />
+					</f:facet>
+					<h:outputText id="outputGenero" value="#{livro.categoria}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderEdicao" value="Edição" />
+					</f:facet>
+					<h:outputText id="outputEdicao" value="#{livro.edicao}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderEditora" value="Editora" />
+					</f:facet>
+					<h:outputText id="outputEditora" value="#{livro.editora}" />
+				</rich:column>
+								
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderAno" value="Ano" />
+					</f:facet>
+					<h:outputText id="outputAno" value="#{livro.ano}" />
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeadernumeroDePaginas" value="Num. De Paginas" />
+					</f:facet>
+					 <h:outputText id="outputnumeroDePaginas" value="#{livro.numeroDePaginas}" />
+				</rich:column>
+			
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderResenha" value="Resenha" />
+					</f:facet>
+					<h:outputText id="outputResenha" value="#{livro.resenha}" />
+				</rich:column>
+							
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderPreco" value="Preco" />
+					</f:facet>
+					<h:outputText id="outputPreco" value="#{livro.preco}">
+						<f:convertNumber pattern="R$####.00"/>
+					</h:outputText>
+				</rich:column>
+											
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText id="outputHeaderAcoes" value="Acoes" />
+					</f:facet>
+					<h:commandButton id="buttonEditar" action="#{livroBean.editarLivro}" value="Editar" />
+					<h:commandButton id="buttonExcluir" action="#{livroBean.excluirLivro}" value="Excluir" />
+				</rich:column>
+			</rich:dataTable>
+
+			<t:saveState id="livroBeanSavestate" value="#{livroBean}"/>
+
+			</h:form>
+			<br></br>
+			<h:messages style="color:red"/>
+		</ui:define>
+
+	</ui:composition>
+
+</html>

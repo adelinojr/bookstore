@@ -26,7 +26,6 @@ public class ServiceLocator {
 	}
 	
 	public Object getLocalEJB(Class<?> ejbInterface) throws NamingException{
-		
 		String jndiNAme = nomeResolver.ResolverNameForLocalEJB(ejbInterface);
 		Object result = cache.get(jndiNAme);
 		if (result == null) {
